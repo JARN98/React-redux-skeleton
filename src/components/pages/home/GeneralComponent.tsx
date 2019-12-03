@@ -1,32 +1,30 @@
 import { Button, Card, Col } from 'antd';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { IPublications } from '../../../interfaces';
 
 
 export interface GeneralComponentsProps {
-  // coches: CocheInterface[];
-  coches: any;
+  publications: IPublications[];
 }
 
-const GeneralComponents: React.FunctionComponent<GeneralComponentsProps> = ({ coches }) => {
+const GeneralComponents: React.FunctionComponent<GeneralComponentsProps> = ({ publications }) => {
 
-  // const renderCoches = (coches: CocheInterface[]): React.ReactNode => {
-  //   return coches.map(({ name, id, color, type, number }: CocheInterface) => {
-  //     return (
-  //       <Col key={id} span={6}>
-  //         <Card title={name} className={'card'} extra={<><Link to={`/edit/${id}`}><Button shape="circle" icon="edit" /></Link><Button shape="circle" icon="delete"></Button></>}>
-  //           <p>{color}</p>
-  //           <p>{type}</p>
-  //           <p>{number}</p>
-  //         </Card>
-  //       </Col>
-  //     );
-  //   });
-  // }
+  const renderPublications = (publications: IPublications[]): React.ReactNode => {
+    return publications.map(({ title, username, _id, content }: IPublications, index) => {
+      return (
+        <Col key={index} span={6}>
+          <Card title={title} className={'card'} extra={<><Link to={`/home/edit/${_id}`}><Button shape="circle" icon="edit" /></Link><Button shape="circle" icon="delete"></Button></>}>
+            <p>{content}</p>
+          </Card>
+        </Col>
+      );
+    });
+  }
 
   return (
     <>
-      {/* {renderCoches(coches)} */}
+      {renderPublications(publications)}
     </>
   );
 }

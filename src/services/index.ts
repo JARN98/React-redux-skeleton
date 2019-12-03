@@ -20,6 +20,8 @@ export const apiFetch = ({ method, url, body, params, file = false, formData }: 
             message: 'Unhautorized'
           }
         };
+        localStorage.removeItem('jwtToken');
+        window.location.reload();
         return error;
       } else {
         return v.json();

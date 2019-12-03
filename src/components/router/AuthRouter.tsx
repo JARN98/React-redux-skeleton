@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect, RouteProps } from 'react-router-dom';
+import { Route, Redirect, RouteProps } from 'react-router-dom';
 
 import { isAuth } from '../../utils';
 import { connect } from 'react-redux';
+import PATH from '../../utils/constants/path';
 
 interface Props extends RouteProps {
   auth: any;
@@ -20,7 +21,7 @@ const AuthRouters: React.FunctionComponent<Props> = props => {
             {children}
           </>
         ) : (
-            <Redirect to={'/login'} />
+            <Redirect to={PATH.LOGIN} />
           )
       }
     />

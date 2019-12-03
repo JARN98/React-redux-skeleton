@@ -2,3 +2,4 @@ const urlBase = `${process.env.REACT_APP_API_PROTOCOL}://${process.env.REACT_APP
 
 export const urlAuthToken = `${urlBase}auth/login`;
 export const urlUsers = `${urlBase}users`;
+export const urlPublications = `${urlBase}publications`;

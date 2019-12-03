@@ -6,3 +6,10 @@ export interface IApiFetch {
   file?: boolean;
   formData?: FormData;
 }
+
+export interface IPublications {
+  _id: string;
+  title: string;
+  username: string;
+  content: string;
+}

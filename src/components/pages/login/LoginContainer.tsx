@@ -1,11 +1,11 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component } from 'react';
 import LoginComponent from './LoginComponent';
 import { Form, Row } from 'antd';
 import './Login.css';
 import { connect } from 'react-redux';
-import { withRouter, Redirect } from 'react-router';
+import { withRouter } from 'react-router';
 import { login, logout } from '../../../redux/actions/authAction';
-import { useHistory } from "react-router-dom";
+import PATH from '../../../utils/constants/path';
 
 interface Props {
   form: any;
@@ -23,7 +23,7 @@ class LoginContainer extends Component<Props, State> {
     this.props.form.validateFields((err: any, values: any) => {
       if (!err) {
         this.props.login(values).then(() => {
-          this.props.history.push('/dashboard');
+          this.props.history.push(PATH.HOME);
         }).catch((e: any) => console.log(e))
       }
     });

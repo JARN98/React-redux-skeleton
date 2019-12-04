@@ -7,8 +7,10 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
+
 const rootComponent = (
   <Provider store={store}>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
     <PersistGate persistor={persistor}>
       <App />
     </PersistGate>

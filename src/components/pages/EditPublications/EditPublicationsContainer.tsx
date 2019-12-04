@@ -2,28 +2,35 @@ import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import EditPublicationsComponent from './EditPublicationsComponent';
-import { Form } from 'antd';
+import { Form, Icon } from 'antd';
 
 interface MatchParams {
   id?: string;
 }
 
-export interface State { }
+export interface State {
+  edit: boolean;
+}
 export interface Props extends RouteComponentProps<MatchParams> {
   form: any;
 }
 
 class EditPublicationsContainer extends React.Component<Props, State> {
   componentDidMount() {
-    console.log(this.props.match.params.id);
+    this.props.match.params.id ? this.setState({ edit: true }) : this.setState({ edit: false });
   }
 
   render() {
     return (
       <>
-        <Form style={{ width: '100%' }}>
-          <EditPublicationsComponent form={this.props.form} />
-        </Form>
+        {
+          this.state !== null ?
+            <Form style={{ width: '100%', height: '100%' }}>
+              <EditPublicationsComponent form={this.props.form} edit={this.state.edit} />
+            </Form>
+            :
+            <Icon type="loading" style={{ fontSize: 24 }} spin />
+        }
       </>
     )
   }
@@ -40,3 +47,4 @@ export default withRouter(
     {}
   )(WrappedEditPublicationsContainer)
 );
+

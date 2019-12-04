@@ -18,6 +18,7 @@ const MainRouters: React.FunctionComponent<Props> = () => {
         <Router>
           <Switch>
             <Route exact path={PATH.HOME} component={General} />
+            <Route exact path={PATH.EDIT} children={<EditPublicationsContainer />} />
             <Route exact path={PATH.EDIT + '/:id'} children={<EditPublicationsContainer />} />
 
             <Route path="/" render={() => <Redirect to={PATH.HOME} />} />

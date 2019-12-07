@@ -10,3 +10,21 @@ export const getPublications = createAction(CONSTANTS.PUBLICATIONS_GET, () => {
     return r;
   });
 });
+
+export const getOnePublication = createAction(CONSTANTS.PUBLICATIONS_GET_ONE, (id: string) => {
+  return apiFetch({ method: CONSTANTS.GET, url: urlPublications + `/${id}` }).then(r => {
+    return r;
+  });
+});
+
+export const createPublication = createAction(CONSTANTS.PUBLICATIONS_POST, (body: object) => {
+  return apiFetch({ method: CONSTANTS.POST, url: urlPublications, body }).then(r => {
+    return r;
+  });
+});
+
+export const updatePublication = createAction(CONSTANTS.PUBLICATIONS_UPDATE_ONE, (body: object, id: string) => {
+  return apiFetch({ method: CONSTANTS.PUT, url: urlPublications + `/${id}`, body }).then(r => {
+    return r;
+  });
+});

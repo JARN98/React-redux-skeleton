@@ -23,7 +23,6 @@ class General extends React.Component<GeneralProps, GeneralState> {
   }
 
   render() {
-
     const { publications } = this.props;
 
     return (

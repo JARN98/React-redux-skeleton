@@ -6,13 +6,14 @@ import { IPublications } from '../../../interfaces';
 export interface Props {
   form: any;
   edit: boolean;
-  publication?: IPublications;
+  publication: IPublications;
 }
 
 function editPublicationsComponent(props: Props) {
 
-  const { form } = props;
+  const { form, edit, publication } = props;
   const { getFieldDecorator } = form;
+
 
   return (
     <>
@@ -22,7 +23,7 @@ function editPublicationsComponent(props: Props) {
           <Card>
             <PageHeader
               onBack={() => window.history.back()}
-              title="Editar Publicación"
+              title={ edit ?  "Editar Publicación" : "Añadir Publicación"}
             />
             <Form.Item label="Title">
               {getFieldDecorator('title', {
@@ -32,6 +33,7 @@ function editPublicationsComponent(props: Props) {
                     message: 'Please input the title',
                   },
                 ],
+                initialValue: publication.title
               })(<Input placeholder="Please input the title" />)}
             </Form.Item>
             <Form.Item label="Content">
@@ -42,6 +44,7 @@ function editPublicationsComponent(props: Props) {
                     message: 'Please input the content'
                   },
                 ],
+                initialValue: publication.content
               })(<TextArea rows={8} />)}
             </Form.Item>
             <Form.Item >

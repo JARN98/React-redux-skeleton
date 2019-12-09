@@ -10,7 +10,9 @@ export const publications = handleActions(
     [CONSTANTS.ACTION_CLEAN_PUBLICATIONS]: (state, action) => (initialValues),
     [CONSTANTS.PUBLICATIONS_GET]: (state, action) => ({ ...state, list: action.payload }),
     [CONSTANTS.PUBLICATIONS_GET_ONE]: (state, action) => ({ ...state, one: action.payload }),
-    [CONSTANTS.PUBLICATIONS_UPDATE_ONE]: (state, action) => ({ ...state, one: action.payload })
+    [CONSTANTS.PUBLICATIONS_UPDATE_ONE]: (state, action) => ({ ...state, one: action.payload }),
+    [CONSTANTS.PUBLICATIONS_DELETE]: (state, action) => ({ ...state, one: {} })
+
 
 
   },

@@ -28,3 +28,9 @@ export const updatePublication = createAction(CONSTANTS.PUBLICATIONS_UPDATE_ONE,
     return r;
   });
 });
+
+export const deletePublication = createAction(CONSTANTS.PUBLICATIONS_DELETE, async (id: string) => {
+  return apiFetch({ method: CONSTANTS.DELETE, url: urlPublications + `/${id}` }).then(r => {
+    return r;
+  });
+});
